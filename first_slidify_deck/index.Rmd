@@ -1,0 +1,59 @@
+---
+title       : My Slidify Presentation
+subtitle    : Reproducible Pitch Presentation
+author      : Akinwamb
+job         : Developing Data Products Project
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Introduction
+
+This presentation obtain relevant descriptive statistics and create a histogram of data.
+
+The dataset to be use in this presentation was originally extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973 - 74 models). So, I am interested in exploring and analysing the gas mileage in miles per gallon (mpg) variable.
+
+The "mpg" is the first variable of the dataset provided from the mtcars{datasets}-R documentation website.
+
+```{r}
+data(mtcars) # data extracted from 1974 Motor Trend US magazine
+dim(mtcars)
+```
+The mtcars dataset has 32 rows with 11 columns.
+
+--- .class #id
+
+## The data
+
+The first six cases of the dataset is shown as follows:
+```{r}
+head(mtcars) # shows the first six observations of the dataset
+```
+
+--- .class #id 
+
+## Exploratory Data Analysis
+
+The first variable, "mpg" is numeric and represent numbers of gas mileage in miles per gallon. It is obtained as follows:
+
+```{r}
+mydata <- mtcars$mpg
+```
+Its descriptive statistics are given as follows:
+```{r}
+summary(mydata); sd(mydata)
+mean((mydata-mean(mydata))^2) # mean square error
+```
+
+--- .class #id
+
+## Histogram
+
+```{r}
+hist(mydata, xlab = "Gas Mileage in miles per gallon",
+            main = "Histogram of Gas Mileage", col = "lightgray")
+```
